@@ -1,0 +1,42 @@
+.collon {
+    animation: mymove 1s infinite;
+    -webkit-animation: mymove 1s infinite;
+}
+
+@keyframes mymove {
+    from {
+        opacity: .1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    margin-top: .1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #fff;
+
+    background-color: #222121;
+    border: 1px solid #838383;
+    border-radius: 5px;
+}
+
+.dropdown-item {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #0a0a0a;
+}
+
+#user-input:hover + .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+}

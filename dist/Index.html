@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Add more meta tags if needed -->
+        <!-- External CSS libraries -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Weather Icon -->
+        <link rel="icon" href="./assets/Weatherlogo.png">
+        <!-- Add more external CSS files if needed -->
+        <link rel="stylesheet" href="Weather.css">
+        <!-- Internal CSS -->
+        <link rel="stylesheet" href="Style.css">
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <!-- Title -->
+        <title>Weather Forecast Application</title>
+    </head>
+
+    <body class="bg-black">
+        <main class="h-screen sm:flex">
+            <!-- Weather Dashboard Heading -->
+            <h1
+                class="sm:hidden text-3xl font-black text-white bg-black h-14 text-center sticky top-0 z-10 pt-2">
+                Weather Dashboard
+            </h1>
+            <!-- Weather Section -->
+            <section
+                class="bg-black w-full h-[23rem] sm:w-72 md:w-80 lg:w-96 sm:h-screen">
+                <div
+                    class="bg-[#1b1b1b] flex flex-col justify-center items-center h-52 rounded-2xl m-2">
+                    <!-- Search Section -->
+                    <div class="text-center">
+                        <!-- Search Input -->
+                        <label for="user-input"
+                            class="text-white text-center font-medium">Search
+                            For Your Preferred
+                            City</label>
+                        <input type="text" id="user-input"
+                            placeholder="City Name"
+                            class="mt-2 p-1 rounded-2xl w-[90%] required">
+                        <div id="dropdownMenu" class="dropdown-menu">
+                        </div>
+                    </div>
+                    <!-- Search Button -->
+                    <button
+                        class="search-btn bg-white font-semibold rounded-full m-4 px-8">Search</button>
+                </div>
+                <!-- OR Current Location Section -->
+                <div
+                    class="bg-[#1b1b1b] flex flex-col items-center justify-center h-36 rounded-2xl m-2">
+                    <div
+                        class="text-white font-bold m-2">&#8213;&#8213;&#8213;&#8213;&#8213;
+                        OR
+                        &#8213;&#8213;&#8213;&#8213;&#8213;</div>
+                    <button
+                        class="current-location bg-green-500 text-white font-semibold rounded-full m-4 px-8">
+                        <i
+                            class="fa-solid fa-location-crosshairs"></i> Current
+                        Location</button>
+                </div>
+            </section>
+
+            <!-- Main Content Section -->
+            <section
+                class="bg-[#121212] h-auto rounded-2xl m-2 sm:ml-2 sm:mt-2 sm:flex-1 sm:overflow-auto">
+                <div
+                    class="hidden bg-[#121212] sm:flex sm:justify-center sm:items-center sm:sticky sm:top-0 sm:z-10 sm:w-full sm:h-[3.25rem]">
+                    <h1 class="text-white text-3xl font-black text-center">
+                        Weather Dashboard </h1>
+                </div>
+                <!-- Weather Time Section -->
+                <div
+                    class="flex flex-wrap m-2 p-2 justify-center flex-col lg:flex-row">
+                    <!-- Weather Time Display -->
+                    <div
+                        class="bg-[#232323] text-white flex flex-col justify-center items-center rounded-xl m-4 p-4 sm:basis-1/4">
+                        <p class="font-medium text-xl city-name">Dummy</p>
+                        <p
+                            class="font-bold text-8xl time-hours-min hoursTime">00:00</p>
+                        <p class="font-light text-2xl day-date-month">Dummy, 00
+                            Dummy</p>
+                    </div>
+                    <!-- Full Weather Information -->
+                    <div
+                        class="bg-[#232323] text-white flex flex-wrap justify-center sm:justify-around items-center rounded-xl sm:basis-1/2">
+                        <!-- Weather Information Sections -->
+                        <div
+                            class="flex flex-col flex-wrap justify-center items-center py-4">
+                            <p class="font-bold text-6xl m-1 p-1"><span
+                                    class="temperature">00</span>&deg;C</p>
+                            <p class="font-light px-2">Feels Like <span
+                                    class="font-medium"><span
+                                        class="feels_like">00</span>&deg;C</span></p>
+                            <!-- Sunrise and Sunset -->
+                            <div class="flex m-2 p-2 ">
+                                <img src="assets/sunrise.png" alt="Sunrise">
+                                <div class="px-4">
+                                    <p>Sunrise</p>
+                                    <span class="sunrise">00:00 AM </span>
+                                </div>
+                            </div>
+                            <div class="flex m-2 p-2">
+                                <img src="assets/sunset.png" alt="Sunset">
+                                <div class="px-4">
+                                    <p>Sunset</p>
+                                    <span class="sunset">00:00 PM </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Weather Description and Additional Information -->
+                        <div
+                            class="flex flex-col justify-center items-center py-2">
+                            <div class="Weather-icon">
+                                <img
+                                    src="assets/clear_1.png"
+                                    alt="Weather Icon">
+                            </div>
+                            <p
+                                class="font-medium text-xl weather-type">Dummy</p>
+                        </div>
+                        <!-- Min_temp, Max_Temp, Humidity, Wind -->
+                        <div
+                            class="flex flex-col flex-wrap justify-center items-center">
+                            <div class="flex justify-center items-center">
+                                <!-- Min_temp and Max_Temp -->
+                                <div
+                                    class="flex flex-col justify-center items-center m-2 p-2">
+                                    <img class="py-2" src="assets/Temp_Min.png"
+                                        alt="Temp_Min Icon">
+                                    <p><span
+                                            class="temp-min">00</span>&deg;C</p>
+                                    <p>Temp-Min</p>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-center items-center m-2 p-2">
+                                    <img class="py-2" src="assets/Temp_Max.png"
+                                        alt="Temp_Max Icon">
+                                    <p><span
+                                            class="temp-max">00</span>&deg;C</p>
+                                    <p>Temp-Max</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <!-- Humidity and Wind -->
+                                <div
+                                    class="flex flex-col justify-center items-center m-2 p-2">
+                                    <img class="py-2" src="assets/humidity.png"
+                                        alt="Humidity Icon">
+                                    <p><span
+                                            class="humidity">00</span>&percnt;</p>
+                                    <p>Humidity</p>
+                                </div>
+                                <div
+                                    class="flex flex-col justify-center items-center m-2 p-2">
+                                    <img class="py-2" src="assets/wind.png"
+                                        alt="Wind Icon">
+                                    <p><span class="wind-speed">00</span>
+                                        M/s</p>
+                                    <p>Wind Speed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hourly Forecast Forecast Section -->
+                <h2
+                    class="text-white text-2xl text-center font-black p-4">Hourly
+                    Forecast</h2>
+                <div class="flex flex-wrap justify-center">
+                    <!-- First Hour Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-3xl m-2 p-4">
+                        <p class="font-semibold text-2xl hours1-time">00:00</p>
+                        <div class="card-info text-sm ">
+                            <span class="text-4xl hours1-icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p><span class="hours1-temp">00</span>&deg;C</p>
+                            <img class="hours1windimg"
+                                src="assets/navigation.png"
+                                alt="wind-navigation">
+                            <p><span class="hours1-windSpeed">00</span> M/s</p>
+                        </div>
+                    </div>
+                    <!-- Second Hour Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-3xl m-2 p-4">
+                        <p class="font-semibold text-2xl hours2-time">00:00</p>
+                        <div class="card-info text-sm ">
+                            <span class="text-4xl hours2-icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p><span class="hours2-temp">00</span>&deg;C</p>
+                            <img class="hours2windimg"
+                                src="assets/navigation.png"
+                                alt="wind-navigation">
+                            <p><span class="hours2-windSpeed">00</span> M/s</p>
+                        </div>
+                    </div>
+                    <!-- Third Hour Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-3xl m-2 p-4">
+                        <p class="font-semibold text-2xl hours3-time">00:00</p>
+                        <div class="card-info text-sm ">
+                            <span class="text-4xl hours3-icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p><span class="hours3-temp">00</span>&deg;C</p>
+                            <img class="hours3windimg"
+                                src="assets/navigation.png"
+                                alt="wind-navigation">
+                            <p><span class="hours3-windSpeed">00</span> M/s</p>
+                        </div>
+                    </div>
+                    <!-- Fourth Hour Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-3xl m-2 p-4">
+                        <p class="font-semibold text-2xl hours4-time">00:00</p>
+                        <div class="card-info text-sm ">
+                            <span class="text-4xl hours4-icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p><span class="hours4-temp">00</span>&deg;C</p>
+                            <img class="hours4windimg"
+                                src="assets/navigation.png"
+                                alt="wind-navigation">
+                            <p><span class="hours4-windSpeed">00</span> M/s</p>
+                        </div>
+                    </div>
+                    <!-- Fifth Hour Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-3xl m-2 p-4">
+                        <p class="font-semibold text-2xl hours5-time">00:00</p>
+                        <div class="card-info text-sm ">
+                            <span class="text-4xl hours5-icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p><span class="hours5-temp">00</span>&deg;C</p>
+                            <img class="hours5windimg"
+                                src="assets/navigation.png"
+                                alt="wind-navigation">
+                            <p><span class="hours5-windSpeed">00</span> M/s</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5 Day Forecast Section -->
+                <h2 class="text-white text-2xl text-center font-black p-4">5
+                    Days Forecast</h2>
+                <div class="flex flex-wrap justify-center">
+                    <!-- First Day Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-lg mt-2 mx-6 p-6">
+                        <p class="font-semibold text-2xl day1-date">
+                            00-00-0000</p>
+                        <div class="card-info text-sm">
+                            <span class="text-4xl weather1Icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p class="day1-temp">Temp: 00 &deg;C</p>
+                            <p class="day1-wind">Wind: 00 M/S</p>
+                            <p class="day1-humidity">Humidity 00&percnt;</p>
+                        </div>
+                    </div>
+                    <!-- Second Day Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-lg mt-2 mx-6 p-6">
+                        <p class="font-semibold text-2xl day2-date">
+                            00-00-0000</p>
+                        <div class="card-info text-sm">
+                            <span class="text-4xl weather2Icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p class="day2-temp">Temp: 00 &deg;C</p>
+                            <p class="day2-wind">Wind: 00 M/S</p>
+                            <p class="day2-humidity">Humidity 00&percnt;</p>
+                        </div>
+                    </div>
+                    <!-- Third Day Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-lg mt-2 mx-6 p-6">
+                        <p class="font-semibold text-2xl day3-date">
+                            00-00-2024</p>
+                        <div class="card-info text-sm ">
+                            <span class="text-4xl weather3Icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p class="day3-temp">Temp: 00 &deg;C</p>
+                            <p class="day3-wind">Wind: 00 M/S</p>
+                            <p class="day3-humidity">Humidity 00&percnt;</p>
+                        </div>
+                    </div>
+                    <!-- Fourth Day Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-lg mt-2 mx-6 p-6">
+                        <p class="font-semibold text-2xl day4-date">
+                            00-00-0000</p>
+                        <div class="card-info text-sm ">
+                            <span class="text-4xl weather4Icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p class="day4-temp">Temp: 00 &deg;C</p>
+                            <p class="day4-wind">Wind: 00 M/S</p>
+                            <p class="day4-humidity">Humidity 00&percnt;</p>
+                        </div>
+                    </div>
+                    <!-- Fifth Day Forecast Section -->
+                    <div
+                        class="bg-[#232323] text-white text-center rounded-lg mt-2 mx-6 p-6">
+                        <p class="font-semibold text-2xl day5-date">
+                            00-00-0000</p>
+                        <div class="card-info text-sm ">
+                            <span class="text-4xl weather5Icon"><i
+                                    class="fa-solid fa-cloud"></i></span>
+                            <p class="day5-temp">Temp: 00 &deg;C</p>
+                            <p class="day5-wind">Wind: 00 M/S</p>
+                            <p class="day5-humidity">Humidity 00&percnt;</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer Section -->
+                <div class="footer h-96 flex justify-center items-center">
+                    <div
+                        class="line w-[85%] h-[0%] border-solid border-[1px]  border-white">
+
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- JavaScript File -->
+        <script src="App.js"></script>
+    </body>
+
+</html>
